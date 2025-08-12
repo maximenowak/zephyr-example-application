@@ -22,6 +22,14 @@ int main(void)
 	//int new_variable = 42;
 	//printk("Print a variable %d\n", new_variable);
 
+	int i;
+for (i = 0; i < 10; i++) {
+  if (i == 5) {
+    continue;  /* Noncompliant */
+  }
+  printk("i = %d\n", i);
+}
+
 	unsigned int period_ms = BLINK_PERIOD_MS_MAX;
 	const struct device *sensor, *blink;
 	struct sensor_value last_val = { 0 }, val;
