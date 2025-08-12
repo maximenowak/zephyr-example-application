@@ -19,7 +19,7 @@ LOG_MODULE_REGISTER(main, CONFIG_APP_LOG_LEVEL);
 int main(void)
 {
 	int ret;
-	int new_variable = 42;
+	//int new_variable = 42;
 	//printk("Print a variable %d\n", new_variable);
 
 	unsigned int period_ms = BLINK_PERIOD_MS_MAX;
