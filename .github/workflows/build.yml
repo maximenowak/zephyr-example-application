@@ -18,6 +18,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: example-application
+          
+      - name: Copy file
+        run: |
+          cp sonar-project.properties example-application/sonar-project.properties
 
       - name: Set up Python
         uses: actions/setup-python@v5
