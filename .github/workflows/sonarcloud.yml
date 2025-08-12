@@ -49,4 +49,4 @@ jobs:
         with:
           working-directory: example-application
           args: >
-            --define sonar.cfamily.compile-commands="example-application/${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json" --define sonar.projectKey=maximenowak_zephyr-example-application --define sonar.organization=maximenowak
+            --define sonar.cfamily.compile-commands="example-application/${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json" --define sonar.projectKey=maximenowak_zephyr-example-application --define sonar.organization=maximenowak  --define sonar.exclusions="modules/**, zephyr/**, zephyr-sdk/**"
