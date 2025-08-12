@@ -19,8 +19,17 @@ LOG_MODULE_REGISTER(main, CONFIG_APP_LOG_LEVEL);
 int main(void)
 {
 	int ret;
-	int new_variable = 42;
-	printk("Print a variable %d\n", new_variable);
+	//int new_variable = 42;
+	//printk("Print a variable %d\n", new_variable);
+
+	int i;
+for (i = 0; i < 10; i++) {
+  if (i == 5) {
+    continue;  /* Noncompliant */
+	// another comment
+  }
+  printk("i = %d\n", i);
+}
 
 	unsigned int period_ms = BLINK_PERIOD_MS_MAX;
 	const struct device *sensor, *blink;
