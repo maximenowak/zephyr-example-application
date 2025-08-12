@@ -26,6 +26,7 @@ int main(void)
 for (i = 0; i < 10; i++) {
   if (i == 5) {
     continue;  /* Noncompliant */
+	// another comment
   }
   printk("i = %d\n", i);
 }
