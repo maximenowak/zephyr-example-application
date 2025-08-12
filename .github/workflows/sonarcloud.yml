@@ -19,6 +19,8 @@ jobs:
       # Install Sonar Build Wrapper    
       - name: Install Build Wrapper
         uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v5
+        with:
+          path: example-application
 
         
       - name: Set up Python
