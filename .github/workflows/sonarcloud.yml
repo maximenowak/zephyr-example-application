@@ -16,6 +16,16 @@ jobs:
         with:
           path: example-application
 
+      - name: Get branch name
+        run: echo "Branch name is ${{ github.head_ref }}"     
+
+      - name: Get base name
+        run: echo "Branch name is ${{ github.base_ref }}"     
+
+      - name: Get branch name
+        run: echo "PR id is ${{  github.event.number }}"    
+                
+
       # Install Sonar Build Wrapper    
       - name: Install Build Wrapper
         uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v5
