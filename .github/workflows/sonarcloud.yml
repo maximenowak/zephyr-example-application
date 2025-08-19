@@ -20,7 +20,7 @@ jobs:
         run: sudo apt-get update
    
       - name: Install gcov
-        run: sudo apt-get install gcov
+        run: sudo apt-get install gcc gcov
 
         
       # Install Sonar Build Wrapper    
