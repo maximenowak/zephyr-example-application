@@ -28,6 +28,9 @@ jobs:
         with:
           python-version: 3.12
 
+      - name: install gcovr 5.0
+        run: |
+          pip install gcovr==5.0 # 5.1 is not supported
           
       - name: Setup Zephyr project
         uses: zephyrproject-rtos/action-zephyr-setup@v1
@@ -39,8 +42,12 @@ jobs:
       - name: Run Build Wrapper
         working-directory: example-application
         run: |
-          build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} west twister -T app -v --inline-logs --integration
+          build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} west twister --coverage -T app -v --inline-logs --integration
 
+      - name: Collect coverage into one XML report
+        working-directory: example-application
+        run: |
+          gcovr --sonarqube > coverage.xml
           
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
@@ -49,4 +56,4 @@ jobs:
         with:
           working-directory: example-application
           args: >
-            --define sonar.cfamily.compile-commands="example-application/${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json" --define sonar.projectKey=maximenowak_zephyr-example-application --define sonar.organization=maximenowak  --define sonar.exclusions="modules/**, zephyr/**, zephyr-sdk/**, example-application/twister-out/**"
+            --define sonar.cfamily.compile-commands="example-application/${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json" --define sonar.projectKey=maximenowak_zephyr-example-application --define sonar.organization=maximenowak  --define sonar.exclusions="modules/**, zephyr/**, zephyr-sdk/**"
