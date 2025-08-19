@@ -15,9 +15,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: example-application
-   
-      - name: Install gcov
-        run: sudo apt-get install g++-9
 
         
       # Install Sonar Build Wrapper    
@@ -46,7 +43,7 @@ jobs:
       - name: Run Build Wrapper
         working-directory: example-application
         run: |
-          build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} west twister --coverage -T app -v --inline-logs --integration
+          build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} west twister -T app -v --inline-logs --integration
 
       - name: Collect coverage into one XML report
         working-directory: example-application
