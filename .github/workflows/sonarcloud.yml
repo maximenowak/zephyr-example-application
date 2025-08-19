@@ -16,6 +16,11 @@ jobs:
         with:
           path: example-application
 
+
+      - name: Install gcov
+        run: sudo apt-get install gcov
+
+        
       # Install Sonar Build Wrapper    
       - name: Install Build Wrapper
         uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v5
