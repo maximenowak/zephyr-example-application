@@ -15,12 +15,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: example-application
-
-      - name: Install update
-        run: sudo apt-get update
    
       - name: Install gcov
-        run: sudo apt-get install gcc gcov
+        run: sudo apt-get install g++-9
 
         
       # Install Sonar Build Wrapper    
