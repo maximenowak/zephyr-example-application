@@ -16,7 +16,9 @@ jobs:
         with:
           path: example-application
 
-
+      - name: Install update
+        run: sudo apt-get update
+   
       - name: Install gcov
         run: sudo apt-get install gcov
 
