@@ -49,6 +49,17 @@ jobs:
         working-directory: example-application
         run: |
           gcovr --sonarqube > coverage.xml
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: SonarQube-Coverage-Report-${{github.run_id}}
+          path: |
+            coverage.xml
+            example-application/coverage.xml
+            example-application/build_wrapper_output_directory/*
+            build_wrapper_output_directory/*    
           
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
