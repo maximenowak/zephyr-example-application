@@ -27,6 +27,8 @@ int main(void)
 	struct sensor_value last_val = { 0 }, val;
 
 	printk("Zephyr Example Application %s\n", APP_VERSION_STRING);
+    printk("Zephyr Example Application %s\n", APP_VERSION_STRING);
+
 
 	sensor = DEVICE_DT_GET(DT_NODELABEL(example_sensor));
 	if (!device_is_ready(sensor)) {
