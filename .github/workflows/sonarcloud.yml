@@ -47,7 +47,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          working-directory: example-application
+          projectBaseDir: example-application
           args: >
             --define sonar.cfamily.compile-commands=example-application/${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json 
             --define sonar.projectKey=maximenowak_zephyr-example-application 
