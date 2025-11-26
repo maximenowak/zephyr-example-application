@@ -51,7 +51,6 @@ jobs:
         with:
           projectBaseDir: example-application
           args: >
-            -Dsonar.cfamily.compile-commands=example-application/${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json 
             -Dsonar.projectKey=maximenowak_zephyr-example-application
             -Dsonar.organization=maximenowak
             -Dsonar.tests=tests
