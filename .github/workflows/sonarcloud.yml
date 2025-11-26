@@ -52,5 +52,5 @@ jobs:
             --define sonar.cfamily.compile-commands=example-application/${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json 
             --define sonar.projectKey=maximenowak_zephyr-example-application 
             --define sonar.sources=app
-            --define sonar.tests=tests
+            --define sonar.tests=example-application/tests
             --define sonar.organization=maximenowak  
